@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nombre Mystère</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div class="mainWrapper">
+      <div class="container">
+        <h1>Le Nombre Mystère</h1>
+        <h2>Règles :</h2>
+  
+        <p>L'ordinateur a sélectionné un nombre mystère entre 1 et 100.</p>
+        <p> Voyons si vous pouvez deviner ce nombre, mais attention ... vous n'avez que 10 essais !</p>
+        <p>L'ordinateur vous indiquera si votre nombre est plus petit ou plus grand que le nombre mystère...</p><p>C'est parti !</p>
+
+        <div class="resultsWrapper">
+          <div class="form">
+            <label for="guessField" id="enterName">Entrez un nombre : </label>
+            <input type="text" id="guessField" class="guessField">
+            <br>
+            <input type="submit" value="Jouez !" class="guessSubmit">
+
+          </div>
+        </div>
+      </div>
+  
+      
+    
+        <div class="resultParas">
+          <h2>Résultats</h2>
+          <p class="lastResult"></p>
+          <p class="guesses"></p>
+          <p class="guessesContent"></p>
+          <p class="remainingGuesses"><p>
+        </div>
+  
+      
+
+    </div>
+    
+
+
+  
+
+  
+
+
+    <script src="scriptbis.js"></script>
+  </body>
+</html>

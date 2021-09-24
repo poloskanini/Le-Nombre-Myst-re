@@ -6,7 +6,7 @@ body {
   width: 100%;
   text-align: center;
   margin: 0;
-  background-image: url(/51141465_m.jpg);
+  background-image: url(images/51141465_m.jpg);
   background-position: top;
   background-repeat: no-repeat;
 }
@@ -62,7 +62,8 @@ p {
   align-items: center;
   justify-content: center;
   padding: 0 3rem;
-  margin: 2rem 0;
+  margin: 2rem 4rem;
+  width: 29%;
 }
 
 #enterName {
@@ -85,10 +86,11 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 5px;
   padding: 20px;
   width: 49%;
   background-color: rgb(242, 247, 247);
-  margin-top: 24rem;
+  margin-top: 2rem;
   box-shadow: 2px 10px 20px rgb(168, 164, 164);
 }
 
@@ -114,6 +116,7 @@ p {
   .container {
     margin-top: 1rem;
   }
+
   h1 {
     font-size: 3rem;
   }

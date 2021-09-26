@@ -33,34 +33,37 @@ function checkGuess() {
   remainingGuesses.textContent = "Nombre d'essais restants : ";
   remainingGuesses.textContent += countingLeft;
 
-  if (count === 1) { // Si le nombre d'essais est égal à 1, on affiche "Propositions précédentes" (cela initialise le début des essais)
+  if (count === 1) { // Si le nombre d'essais est égal à 1, on affiche "Propositions précédentes" (cela initialise le début des essais et l'affichage de "guesses")
     guesses.textContent = "Propositions précédentes : \n";
   }
-  guessesContent.textContent += userGuess + ' / ' ;
-  if (userGuess === randomNumber) {
+  guessesContent.textContent += userGuess + ' / ' ; // Stocke les propositions précédentes
+  if (userGuess === randomNumber) { // En cas de victoire :
     lastResult.textContent = 'BRAVO ! Vous avez gagné !';
-    lastResult.style.backgroundColor = 'green';
+    resultParas.style.backgroundColor = 'lightgreen';
     guesses.textContent = '';
     remainingGuesses.textContent = '';
     guessesContent.textContent = '';
-    setGameOver();
-  } else if (count === 10) {
+    setGameOver(); // Lance la fonction de réinitialisation de partie
+  } else if (count === 10) { // En cas de défaite :
     lastResult.textContent = "PERDU ! Vous avez dépassé les 10 essais";
     guesses.textContent = '';
     remainingGuesses.textContent = '';
     guessesContent.textContent = '';
+    resultParas.style.backgroundColor = 'red';
     setGameOver();
-  } else {
+  } else { // En cas de résultat trop bas
     lastResult.textContent = "Faux ! ";
     if (userGuess < randomNumber) {
-      lastResult.style.backgroundColor = "red";
+      resultParas.classList.remove("itsless")
+      resultParas.classList.add("itsmore")
       lastResult.textContent += "C'est plus ! 👍🏼"
-    } else if (userGuess > randomNumber) {
-      lastResult.style.backgroundColor = "orange";
+    } else if (userGuess > randomNumber) { // En cas de résultat trop haut
+      resultParas.classList.remove("itsmore")
+      resultParas.classList.add("itsless")
       lastResult.textContent += "C'est moins ! 👎🏼"
     }
   }
-  count++;
+  count++; // Incrémente le compteur
   guessField.value = '';
   guessField.focus();
 }  
@@ -83,8 +86,8 @@ function setGameOver() {
   
   resetButton = document.createElement('button');
   resetButton.textContent = "Démarrer une nouvelle partie";
-  resetButton.style.fontSize="1.5rem";
-  resetButton.style.width="50%";
+  resetButton.style.fontSize="1.2rem";
+  resetButton.style.width="70%";
   resetButton.style.cursor="pointer";
   resultsWrapper.appendChild(resetButton);
   resetButton.addEventListener('click', restartGame)
@@ -102,7 +105,7 @@ function restartGame() {
   guessSubmit.disabled = false;
   guessField.value = '';
   guessField.focus();
-  lastResult.style.backgroundColor = 'transparent';
+  resultParas.style.backgroundColor = 'rgba(242, 247, 247, .9)';
 
   randomNumber = Math.floor(Math.random() * 100) + 1;
 }
